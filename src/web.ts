@@ -19,6 +19,10 @@ export class ContactsWeb extends WebPlugin implements Definitions.ContactsPlugin
     throw this.unimplemented('Not implemented on web.');
   }
 
+  async getContactsCount(): Promise<Definitions.GetContactsCountResult> {
+    throw this.unimplemented('Not implemented on web.');
+  }
+
   async createContact(): Promise<Definitions.CreateContactResult> {
     throw this.unimplemented('Not implemented on web.');
   }

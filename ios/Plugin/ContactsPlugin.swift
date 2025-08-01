@@ -37,6 +37,30 @@ public class ContactsPlugin: CAPPlugin, CNContactPickerDelegate {
         ])
     }
 
+    @objc func getContactsCount(_ call: CAPPluginCall) {
+        let store = CNContactStore()
+        let keys = [CNContactIdentifierKey]
+        let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
+        var count = 0
+
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                try store.enumerateContacts(with: request) { _, _ in
+                    count += 1
+                }
+                DispatchQueue.main.async {
+                    call.resolve([
+                        "count": count // Als JSON-Objekt zurückgeben
+                    ])
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    call.reject("Error")
+                }
+            }
+        }
+    }
+
     @objc override public func requestPermissions(_ call: CAPPluginCall) {
         CNContactStore().requestAccess(for: .contacts) { [weak self] _, _  in
             self?.checkPermissions(call)

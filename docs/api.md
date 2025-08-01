@@ -55,6 +55,17 @@ getContacts(options: GetContactsOptions) => Promise<GetContactsResult>
 --------------------
 
 
+### getContactsCount()
+
+```typescript
+getContactsCount() => Promise<GetContactsCountResult>
+```
+
+**Returns:** <code>Promise&lt;[GetContactsCountResult](#getcontactscountresult)&gt;</code>
+
+--------------------
+
+
 ### createContact(...)
 
 ```typescript
@@ -238,6 +249,13 @@ pickContact(options: PickContactOptions) => Promise<PickContactResult>
 | Prop             | Type                                   |
 | ---------------- | -------------------------------------- |
 | **`projection`** | <code>[Projection](#projection)</code> |
+
+
+#### GetContactsCountResult
+
+| Prop        | Type                |
+| ----------- | ------------------- |
+| **`count`** | <code>number</code> |
 
 
 #### CreateContactResult

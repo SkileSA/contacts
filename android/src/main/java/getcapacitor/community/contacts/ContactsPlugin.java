@@ -218,6 +218,33 @@ public class ContactsPlugin extends Plugin {
         }
     }
 
+    @PluginMethod
+    public void getContactsCount(PluginCall call) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        executor.execute(
+            () -> {
+                try {
+                    int count = implementation.getContactsCount();
+
+                    if (count == -1) {
+                        bridge.getActivity().runOnUiThread(() -> call.reject("Error retrieving contacts.", "ERROR_RETRIEVING_CONTACTS"));
+                    } else {
+                        JSObject result = new JSObject();
+                        result.put("count", count);
+                        bridge.getActivity().runOnUiThread(() -> call.resolve(result));
+                    }
+                } catch (SecurityException e) {
+                    bridge.getActivity().runOnUiThread(() -> call.reject("Permission denied.", "PERMISSION_DENIED"));
+                } catch (Exception e) {
+                    bridge.getActivity().runOnUiThread(() -> call.reject("Unknown error.", "UNKNOWN_ERROR"));
+                }
+            }
+        );
+
+        executor.shutdown();
+    }
+
     @ActivityCallback
     private void pickContactResult(PluginCall call, ActivityResult activityResult) {
         if (call != null && activityResult.getResultCode() == Activity.RESULT_OK && activityResult.getData() != null) {

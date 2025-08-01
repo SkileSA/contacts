@@ -4,11 +4,16 @@ export interface PermissionStatus {
   contacts: PermissionState;
 }
 
+export interface GetContactsCountResult {
+  count: number;
+}
+
 export interface ContactsPlugin {
   checkPermissions(): Promise<PermissionStatus>;
   requestPermissions(): Promise<PermissionStatus>;
   getContact(options: GetContactOptions): Promise<GetContactResult>;
   getContacts(options: GetContactsOptions): Promise<GetContactsResult>;
+  getContactsCount(): Promise<GetContactsCountResult>;
   createContact(options: CreateContactOptions): Promise<CreateContactResult>;
   deleteContact(options: DeleteContactOptions): Promise<void>;
   pickContact(options: PickContactOptions): Promise<PickContactResult>;

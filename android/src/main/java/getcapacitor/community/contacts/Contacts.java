@@ -345,6 +345,33 @@ public class Contacts {
         }
     }
 
+    public int getContactsCount() {
+        int count = -1;
+        Cursor cursor = null;
+        try {
+            ContentResolver cr = this.mActivity.getContentResolver();
+            cursor =
+                cr.query(
+                    ContactsContract.Contacts.CONTENT_URI,
+                    null,
+                    null,
+                    null,
+                    null
+                );
+
+            if (cursor != null) {
+                count = cursor.getCount();
+            }
+        } catch (Exception e) {
+            return -1;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return count;
+    }
+
     public static @Nullable String getIdFromUri(@Nullable Uri uri) {
         if (uri != null) {
             return uri.getLastPathSegment();

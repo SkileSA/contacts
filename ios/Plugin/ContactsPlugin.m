@@ -8,6 +8,7 @@ CAP_PLUGIN(ContactsPlugin, "Contacts",
            CAP_PLUGIN_METHOD(requestPermissions, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(getContact, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(getContacts, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(getContactsCount, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(createContact, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(deleteContact, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(pickContact, CAPPluginReturnPromise);
