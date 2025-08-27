@@ -44,25 +44,25 @@
     "release": "standard-version"
   },
   "devDependencies": {
-    "@capacitor/android": "^7.0.1",
-    "@capacitor/core": "^7.0.0",
-    "@capacitor/ios": "^7.0.0",
-    "@commitlint/cli": "^17.3.0",
-    "@commitlint/config-conventional": "^17.3.0",
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/ios": "^7.4.3",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@ionic/eslint-config": "^0.4.0",
     "@ionic/prettier-config": "^4.0.0",
     "@ionic/swiftlint-config": "^2.0.0",
     "@tafelnl/capacitor-docgen": "^0.1.1",
-    "@types/node": "^18.19.75",
-    "eslint": "^8.57.0",
-    "husky": "^8.0.2",
-    "prettier": "^3.4.2",
-    "prettier-plugin-java": "^2.6.6",
+    "@types/node": "^18.19.123",
+    "eslint": "^9.34.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2",
+    "prettier-plugin-java": "^2.7.4",
     "rimraf": "^6.0.1",
-    "rollup": "^4.30.1",
+    "rollup": "^4.49.0",
     "standard-version": "^9.5.0",
     "swiftlint": "^2.0.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.9.2"
   },
   "peerDependencies": {
     "@capacitor/core": ">=7.0.0"
